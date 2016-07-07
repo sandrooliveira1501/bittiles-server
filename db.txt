@@ -1,0 +1,12 @@
+Usuario : {
+
+  idFacebook :Number,
+  nome : String,
+  nivel : Number
+}
+
+Musica: {
+  id: String,
+  nome: String,
+  score: Number
+}
