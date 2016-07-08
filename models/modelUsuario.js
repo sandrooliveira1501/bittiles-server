@@ -17,6 +17,15 @@ var schema = Schema({
   nivel : {type: Number, default: 0}
 }, {collection: constants.COLLECTION_NAME});
 
+schema.statics.ranking = function(usuarios, cb){
+
+  var query = {idFacebook: {$in:usuarios}};
+  var sort = {nivel:-1};
+
+  this.find(query).sort(sort).exec(cb);
+
+};
+
 var Usuario = mongoose.model(constants.MODEL_NAME, schema);
 Usuario.constants = constants;
 
