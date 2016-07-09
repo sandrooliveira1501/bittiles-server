@@ -26,6 +26,14 @@ schema.statics.ranking = function(usuarios, musica, cb){
 
   this.aggregate([
     {$match: query},
+    {$lookup: {
+              from: "usuarios",
+              localField: "idFacebook",
+              foreignField : "idFacebook",
+              as: "usuario"
+            }
+    },
+    {$unwind: "$usuario"},
     {$sort: sort}
 
   ]).exec(cb);
