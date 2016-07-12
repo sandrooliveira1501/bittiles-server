@@ -12,7 +12,7 @@ var constants = {
 //DEPOIS ADICIONAR SE é required unique, etc
 // create a schema
 var schema = Schema({
-  idFacebook :{type: Number, required: true, unique: true},
+  idFacebook :{type: String, required: true, unique: true},
   nome : {type: String, required : true},
   nivel : {type: Number, default: 0}
 }, {collection: constants.COLLECTION_NAME});
