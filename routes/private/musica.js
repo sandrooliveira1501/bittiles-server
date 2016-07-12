@@ -11,16 +11,35 @@ router.post('/',function(req,res,next){
   }
 
   var musica = new Musica(req.body.musica);
+  var query = {idFacebook:musica.idFacebook, fileName: musica.fileName};
 
-  musica.save(function(err, musicaSaved){
-
+  Musica.find(query, function(err, musicas){
     if(err){
       return next(err);
     }
 
-    return res.json(musicaSaved);
+    var musicaSaved;
+    if(musicas && musicas.length > 0){
+      musicaSaved = musicas[0];
+      if(musica.score > musicaSaved.score){
+        musicaSaved.score = musica.score;
+      }
+    }else{
+      musicaSaved = musica;
+    }
+
+    musicaSaved.save(function(err, response){
+
+      if(err){
+        return next(err);
+      }
+
+      return res.json(response);
+
+    });
 
   });
+
 
 });
 

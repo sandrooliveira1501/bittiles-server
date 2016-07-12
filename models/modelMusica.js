@@ -12,7 +12,7 @@ var constants = {
 //DEPOIS ADICIONAR SE é required unique, etc
 // create a schema
 var schema = Schema({
-  fileName: {type : String, required: true, unique: true},
+  fileName: {type : String, required: true},
   dificuldade: {type: Number, required: true},
   nome: { type: String, required:true},
   score: {type:Number, required:true},
