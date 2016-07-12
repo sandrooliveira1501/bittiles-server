@@ -16,7 +16,7 @@ var schema = Schema({
   dificuldade: {type: Number, required: true},
   nome: { type: String, required:true},
   score: {type:Number, required:true},
-  idFacebook: {type: Number, required:true}
+  idFacebook: {type: String, required:true}
 }, {collection: constants.COLLECTION_NAME});
 
 schema.statics.ranking = function(usuarios, musica, cb){
