@@ -13,7 +13,7 @@ var constants = {
 // create a schema
 var schema = Schema({
   fileName: {type : String, required: true},
-  dificuldade: {type: Number, required: true},
+  nivel: {type: Number, required: true},
   nome: { type: String, required:true},
   score: {type:Number, required:true},
   idFacebook: {type: String, required:true}
@@ -21,7 +21,7 @@ var schema = Schema({
 
 schema.statics.ranking = function(usuarios, musica, cb){
 
-  var query = {idFacebook: {$in:usuarios}, fileName: musica.fileName, dificuldade: musica.dificuldade};
+  var query = {idFacebook: {$in:usuarios}, fileName: musica.fileName};
   var sort = {score:-1};
 
   this.aggregate([
