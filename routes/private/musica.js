@@ -71,4 +71,18 @@ router.put('/',function(req,res,next){
 
 });
 
+router.post('/usuario', function(req,res,next){
+
+
+  Musica.find({idFacebook:req.auth.idFacebook}, function(err, musicas){
+      if(err){
+        return next (err);
+      }
+      var response = {};
+      response.scores = musicas;
+      return res.json(response);
+  });
+
+});
+
 module.exports = router;
