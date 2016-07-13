@@ -14,7 +14,7 @@ router.post('/ranking',function(req,res,next){
       return next(err);
     }
 
-    return res.json(ranking);
+    return res.json({"lista":ranking});
 
   });
 
