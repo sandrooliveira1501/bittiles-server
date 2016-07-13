@@ -24,6 +24,11 @@ router.post('/',function(req,res,next){
       if(musica.score > musicaSaved.score){
         musicaSaved.score = musica.score;
       }
+
+      if(musica.estrelas > musicaSaved.estrelas){
+        musicaSaved.estrelas = musica.estrelas;
+      }
+
     }else{
       musicaSaved = musica;
     }
